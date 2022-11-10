@@ -1,0 +1,3 @@
+[submodule "react/React-Flashcard-App"]
+	path = react/React-Flashcard-App
+	url = https://github.com/WebDevSimplified/React-Flashcard-App
