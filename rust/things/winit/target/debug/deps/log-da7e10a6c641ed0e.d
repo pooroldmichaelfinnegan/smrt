@@ -1,0 +1,7 @@
+/Users/g/_m/git_221110/smrt/rust/bin/winit/target/debug/deps/log-da7e10a6c641ed0e.rmeta: /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/log-0.4.17/src/lib.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/log-0.4.17/src/macros.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/log-0.4.17/src/serde.rs
+
+/Users/g/_m/git_221110/smrt/rust/bin/winit/target/debug/deps/log-da7e10a6c641ed0e.d: /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/log-0.4.17/src/lib.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/log-0.4.17/src/macros.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/log-0.4.17/src/serde.rs
+
+/Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/log-0.4.17/src/lib.rs:
+/Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/log-0.4.17/src/macros.rs:
+/Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/log-0.4.17/src/serde.rs:

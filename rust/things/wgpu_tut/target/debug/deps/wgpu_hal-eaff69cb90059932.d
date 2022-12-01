@@ -1,0 +1,13 @@
+/Users/g/_m/git_221110/smrt/rust/wgpu_tut/target/debug/deps/wgpu_hal-eaff69cb90059932.rmeta: /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/lib.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/empty.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/mod.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/adapter.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/command.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/conv.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/device.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/surface.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/auxil/mod.rs
+
+/Users/g/_m/git_221110/smrt/rust/wgpu_tut/target/debug/deps/wgpu_hal-eaff69cb90059932.d: /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/lib.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/empty.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/mod.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/adapter.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/command.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/conv.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/device.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/surface.rs /Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/auxil/mod.rs
+
+/Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/lib.rs:
+/Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/empty.rs:
+/Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/mod.rs:
+/Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/adapter.rs:
+/Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/command.rs:
+/Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/conv.rs:
+/Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/device.rs:
+/Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/metal/surface.rs:
+/Users/g/.cargo/registry/src/github.com-1ecc6299db9ec823/wgpu-hal-0.14.1/src/auxil/mod.rs:
