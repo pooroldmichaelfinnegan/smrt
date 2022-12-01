@@ -1,4 +1,9 @@
 **/.DS_Store
-**/node_modules
 **/.git
 **/.git.bak
+
+# rust heavies
+**/target/debug
+
+# node heavies
+**/node_modules
