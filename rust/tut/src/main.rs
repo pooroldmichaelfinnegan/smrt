@@ -11,7 +11,7 @@ fn main() -> Result<(), std::io::Error> {
     .map(|byte| { byte / 2 });
   println!("{:?}", vec2.collect::<Vec<u8>>());
 
-  println!("{:?}", 20u8.to_ascii_lowercase());
+  println!("{:?}", vec.as_slice());
 
   Ok(())
 }
