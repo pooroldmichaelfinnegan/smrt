@@ -3,7 +3,7 @@
 **/.git.bak
 
 # rust heavies
-**/target/debug
+rust/**/target
 
 # node heavies
 **/node_modules
