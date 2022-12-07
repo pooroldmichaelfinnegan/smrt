@@ -5,9 +5,9 @@ import (
 	"os"
 )
 
-func main() {
+func myRead(path string) {
 	// var egg string = "eggs"
-	file, err := os.ReadFile("./files/lnmsd.txt")
+	file, err := os.ReadFile(path)
 
 	fmt.Println(file)
 	fmt.Printf("%s\n", file)

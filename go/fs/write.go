@@ -5,9 +5,10 @@ import (
 	"os"
 )
 
-func main() {
+func main2() {
 	// var egg string = "eggs"
-	file, error := os.ReadFile("./files/txt.txt")
+	file, err := os.ReadFile("./files/txt.txt")
 
 	fmt.Println(file)
+	fmt.Println(err)
 }
