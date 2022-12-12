@@ -1,8 +1,8 @@
 package main
-package read
 
+// package read
 
-// import
+// import ""
 
 func main() {
 	myRead("./files/lnmsd.txt")
