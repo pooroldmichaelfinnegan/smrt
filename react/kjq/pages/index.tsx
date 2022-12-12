@@ -2,25 +2,38 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
-import Card from './card'
+import React, { useState, useRef } from 'react'
 
 export default function Home() {
+  // const inputRef = useRef()
+
   return (
     <div className={styles.container}>
+      Home<br />
       <Card />
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   )
+}
+
+function Card() {
+  const [inputField, setInputField] = useState('> default <')
+
+  console.log({ setInputField })
+
+  return <div className={styles.card}>
+    Card<br />
+    <Input field={inputField} setField={setInputField} /><br />
+    {inputField}
+  </div>
+}
+
+function Input({ field, setField }) {
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  return <input
+    className="text-red-900 text-center "
+    type="text"
+    ref={inputRef}
+    onChange={() => setField(inputRef.current.value)}
+  />
 }
