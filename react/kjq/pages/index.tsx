@@ -30,7 +30,6 @@ const oneToTwenty = [
   ["19", "nitten"], 
   ["20", "tyve"]
 ]
-
 const egg = [
   ["hvem", "who"],
   ["hvad", "what"],
@@ -39,13 +38,13 @@ const egg = [
   ["hvorfor", "why"],
   ["hvordan", "how"],
   ["af", "off"],
-  ["at", "to", "that", "as to"],
+  ["at", "to, that, as to"],
   ["av", "of"],
   ["bag", "behind"],
   ["blitt", "become"],
   ["eller", "or"],
   ["fint", "fine"],
-  ["før", "until", "before"],
+  ["før", "until, before"],
   ["fordi", "because"],
   ["frå", "from"],
   ["hvilken", "which"],
@@ -53,22 +52,46 @@ const egg = [
   ["lave", "make"],
   ["med", "with"],
   ["men", "but"],
-  ["mens", "while", "as"],
+  ["mens", "while, as"],
   ["når", "when"],
   ["nær", "near"],
   ["òg", "and"],
-  ["om", "about", "on", "if", "whether", "in"],
+  ["om", "about, on, if, whether, in"],
   ["på", "on"],
   ["rører ved", "touching"],
-  ["sjå", "see", "look"],
-  ["som", "what", "that", "like", "as"],
-  ["to", "to", "for", "into", "until"],
+  ["sjå", "see, look"],
+  ["som", "what, that, like, as"],
+  ["to", "to, for, into, until"],
   ["uden", "without"],
-  ["være", "be", "have", "make"],
-  ["var", "was", "had"],
-  ["ved", "near", "at", "know", "to"]
+  ["være", "be, have, make"],
+  ["var", "was, had, where"],
+  ["ved", "near, at, know, to"]
+]
+const simp = [
+  ["altid", "always"],
+  ["arbejder", "work"],
+  [""],
+  ["bare", "just"],
+  ["endelig", "finally, eventually"],
+  ["hjælpe", "help"],
+  ["lidt", "a bit, little"],
+  ["lytter", "listen"],
+  ["mere", "more"],
+  ["nu", "now"],
+  ["sang", "song"],
+  ["stadig", "still"],
+  ["unden", "without"],
+  ["undenfor", "outside"],
+  ["virker", "functions"],
+  ["visninger", "views"],
 ]
 
+// import måneder_months from "../arrays/måneder__months.json"
+// import months_måneder from "../arrays/months__måneder.json"
+// import ugens_dage__days_of_the_week from "../arrays/ugens_dage__days_of_the_week.json"
+import days_of_the_week__ugens_dage from "../arrays/days_of_the_week__ugens_dage.json"
+
+const arr = days_of_the_week__ugens_dage
 
 export default function Home() {
   const [answers, setAnswers] = useState([])
@@ -78,7 +101,7 @@ export default function Home() {
 
 
   useEffect(() => {
-    setOrd(get(egg))
+    setOrd(get(arr))
   }, answers)
 
 
@@ -88,10 +111,10 @@ export default function Home() {
 
 
   return (
-    <div className="border-2 flex flex-col items-center h-full">
+    <div className="flex flex-col items-center h-full">
       <h1 className="text-8xl mt-[10px]">{ord[0]}</h1>
       <Input ord={ord} inputField={inputField} setInputField={setInputField} answers={answers} setAnswers={setAnswers} />
-      <div className="w-1/3 text-base">
+      <div className="w-1/2 text-base">
         <DisplayAnswers answers={answers} />
       </div>
       {/* <Card answers={answers} setAnswers={setAnswers} /> */}
@@ -119,11 +142,11 @@ function Input({ ord, inputField, setInputField, answers, setAnswers }) {
       case 'Enter':
         if ( inputField ) {
           setInputField('')
-          setAnswers([[ ord[0], ord[1], inputField ], ...answers ])
+          setAnswers([[ inputField === ord[1] ? "text-lime-500" : "text-red-500", ord[0], ord[1], inputField ], ...answers ])
   }}}
 
   return <input
-    className="text-white-900 text-center my-4 border-solid border-2 border-red-900 focus:border-sky-900 "
+    className="text-white-900 text-center my-4"
     type="text"
     onKeyDown={handleAnswerChange}
     value={inputField}
@@ -137,10 +160,10 @@ function Input({ ord, inputField, setInputField, answers, setAnswers }) {
 function DisplayAnswers({ answers }) {
   return answers.map((row: string[]) => {
     return (
-      <div className="flex flex-row justify-center divide-y">
-        <div className="w-1/5 p-1 truncate">{row[0]}</div>
-        <div className="w-1/3 py-1 px-3 truncate">{row[1]}</div>
-        <div className="w-1/3 py-1 px-3 truncate">{row[2]}</div>
+      <div className={`flex flex-row justify-center}`}>
+        <div className={`flex-1 py-1 px-3 truncate`}>{row[1]}</div>
+        <div className={`flex-1 py-1 px-3 truncate`}>{row[2]}</div>
+        <div className={`flex-1 py-1 px-3 truncate ${row[0]}`}>{row.slice(3,)}</div>
       </div>
   )})
 }
