@@ -7,36 +7,8 @@ import React, { useState, useEffect } from 'react'
 
 const subject = [["i", "jeg"],["you", "du"],["he", "han"],["she", "hun"],["we", "vi"],["you", "i"],["they", "de"]]
 const object = [["me", "mig"],["you", "dig"],["him", "ham"],["her", "hende"],["us", "os"],["you", "jer"],["them", "dem"]]
-const oneToTwenty = [
-  ["0", "nul"],
-  ["1", "en"],
-  ["2", "to"],
-  ["3", "tre"],
-  ["4", "fire"],
-  ["5", "fem"],
-  ["6", "seks"],
-  ["7", "syv"],
-  ["8", "otte"],
-  ["9", "ni"],
-  ["10", "ti"],
-  ["11", "elleve"],
-  ["12", "tolv"],
-  ["13", "tretten"],
-  ["14", "fjorten"],
-  ["15", "femten"],
-  ["16", "seksten"],
-  ["17", "syvten"],
-  ["18", "atten"],
-  ["19", "nitten"], 
-  ["20", "tyve"]
-]
+
 const egg = [
-  ["hvem", "who"],
-  ["hvad", "what"],
-  ["hvornår", "when"],
-  ["hvor", "where"],
-  ["hvorfor", "why"],
-  ["hvordan", "how"],
   ["af", "off"],
   ["at", "to, that, as to"],
   ["av", "of"],
@@ -67,31 +39,70 @@ const egg = [
   ["var", "was, had, where"],
   ["ved", "near, at, know, to"]
 ]
-const simp = [
-  ["altid", "always"],
-  ["arbejder", "work"],
-  [""],
-  ["bare", "just"],
-  ["endelig", "finally, eventually"],
-  ["hjælpe", "help"],
-  ["lidt", "a bit, little"],
-  ["lytter", "listen"],
-  ["mere", "more"],
-  ["nu", "now"],
-  ["sang", "song"],
-  ["stadig", "still"],
-  ["unden", "without"],
-  ["undenfor", "outside"],
-  ["virker", "functions"],
-  ["visninger", "views"],
-]
+
 
 // import måneder_months from "../arrays/måneder__months.json"
 // import months_måneder from "../arrays/months__måneder.json"
 // import ugens_dage__days_of_the_week from "../arrays/ugens_dage__days_of_the_week.json"
-import days_of_the_week__ugens_dage from "../arrays/days_of_the_week__ugens_dage.json"
+// import days_of_the_week__ugens_dage from "../arrays/days_of_the_week__ugens_dage.json"
+// import oneToTwenty from "../arrays/numbers.json"
+import simp from "../arrays/simple.json"
+import { prependOnceListener } from 'process'
 
-const arr = days_of_the_week__ugens_dage
+import people from "../arrays/FunEasyLearn/people.json"
+import describing_people from "../arrays/FunEasyLearn/describing_people.json"
+import fashion from "../arrays/FunEasyLearn/fashion.json"
+import body from "../arrays/FunEasyLearn/body.json"
+import health from "../arrays/FunEasyLearn/health.json"
+import house from "../arrays/FunEasyLearn/house.json"
+import shopping from "../arrays/FunEasyLearn/shopping.json"
+import food_drink from "../arrays/FunEasyLearn/food_drink.json"
+import education from "../arrays/FunEasyLearn/education.json"
+import work from "../arrays/FunEasyLearn/work.json"
+import culture from "../arrays/FunEasyLearn/culture.json"
+import leisure_time from "../arrays/FunEasyLearn/leisure_time.json"
+import sport from "../arrays/FunEasyLearn/sport.json"
+import city from "../arrays/FunEasyLearn/city.json"
+import transport from "../arrays/FunEasyLearn/transport.json"
+import communications from "../arrays/FunEasyLearn/communications.json"
+import security from "../arrays/FunEasyLearn/security.json"
+import animals from "../arrays/FunEasyLearn/animals.json"
+import plants from "../arrays/FunEasyLearn/plants.json"
+import environment from "../arrays/FunEasyLearn/environment.json"
+import systems from "../arrays/FunEasyLearn/systems.json"
+import verbs from "../arrays/FunEasyLearn/verbs.json"
+import adjectives from "../arrays/FunEasyLearn/adjectives.json"
+import adverbs from "../arrays/FunEasyLearn/adverbs.json"
+import other from "../arrays/FunEasyLearn/other.json"
+
+const FunEasyLearn = [ ...people, 
+  // ...describing_people,
+  // ...fashion,
+  // ...body,
+  // ...health,
+  // ...house,
+  // ...shopping,
+  // ...food_drink,
+  // ...education,
+  // ...work,
+  // ...culture,
+  // ...leisure_time,
+  // ...sport,
+  // ...city,
+  // ...transport,
+  // ...communications,
+  // ...security,
+  // ...animals,
+  // ...plants,
+  // ...environment,
+  // ...systems,
+  ...verbs,
+  ...adjectives,
+  ...adverbs,
+  ...other
+]
+
+const arr = FunEasyLearn
 
 export default function Home() {
   const [answers, setAnswers] = useState([])
