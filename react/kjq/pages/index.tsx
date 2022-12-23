@@ -1,8 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from "next/head"
+import Image from "next/image"
+import styles from "../styles/Home.module.css"
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react"
 
 
 const subject = [["i", "jeg"],["you", "du"],["he", "han"],["she", "hun"],["we", "vi"],["you", "i"],["they", "de"]]
@@ -47,7 +47,7 @@ const egg = [
 // import days_of_the_week__ugens_dage from "../arrays/days_of_the_week__ugens_dage.json"
 // import oneToTwenty from "../arrays/numbers.json"
 import simp from "../arrays/simple.json"
-import { prependOnceListener } from 'process'
+import { prependOnceListener } from "process"
 
 import people from "../arrays/FunEasyLearn/people.json"
 import describing_people from "../arrays/FunEasyLearn/describing_people.json"
@@ -75,7 +75,8 @@ import adjectives from "../arrays/FunEasyLearn/adjectives.json"
 import adverbs from "../arrays/FunEasyLearn/adverbs.json"
 import other from "../arrays/FunEasyLearn/other.json"
 
-const FunEasyLearn = [ ...people, 
+const FunEasyLearn = [
+  // ...people, 
   // ...describing_people,
   // ...fashion,
   // ...body,
@@ -96,46 +97,90 @@ const FunEasyLearn = [ ...people,
   // ...plants,
   // ...environment,
   // ...systems,
-  ...verbs,
+  // ...verbs,
   ...adjectives,
-  ...adverbs,
-  ...other
+  // ...adverbs,
+  // ...other
 ]
 
 const arr = FunEasyLearn
+// let withCount = arr.map((words) => {
+//   console.log("use effect first", words)
+//   return [5, ...words]
+// })
+
+// function handleCount(word) {
+//   withCount.map(ord => {
+//     if (word === ord[1] || word === ord[2]) {
+//       return [ ord[0] - 1, ord[1], ord[2] ]
+//     }
+//     return ord
+//   })
+// }
+
+// console.log(">>>>>>>>> withCount ", withCount)
 
 export default function Home() {
+  const [engDan, setEngDan] = useState(0)
   const [answers, setAnswers] = useState([])
   const [word, setWord] = useState("default")
-  const [inputField, setInputField] = useState('')
-  const [ord, setOrd] = useState(['music', 'musik'])
+  const [inputField, setInputField] = useState("")
+  const [ord, setOrd] = useState(["music", "musik"])
+  const [withCount, setWithCount] = useState(arr.map((words) => { return [2, ...words] }))
+  const [wordsStill, setWordsStill] = useState(withCount.map(word => { if (word[0] > 0) { return word }}))
 
+  console.log(" >>>> wordsstill", wordsStill)
 
   useEffect(() => {
-    setOrd(get(arr))
+    setOrd(random(wordsStill))
   }, answers)
 
+  // useEffect(() => {
+  //   setWordsStill(withCount.map(word => { if (word[0] > 0) { return word }}))
+  // })
 
-  function get(array: string[][]) {
-    return array[ Math.floor(Math.random() * array.length )]
+  function random(array) {
+    return array[Math.floor(Math.random() * array.length)]
   }
 
-
   return (
-    <div className="flex flex-col items-center h-full">
-      <h1 className="text-8xl mt-[10px]">{ord[0]}</h1>
-      <Input ord={ord} inputField={inputField} setInputField={setInputField} answers={answers} setAnswers={setAnswers} />
-      <div className="w-1/2 text-base">
-        <DisplayAnswers answers={answers} />
+    <div className="flex flex-row w-full">
+      <div className="w-1/4">
+        <ListOfWords list={withCount} />
       </div>
-      {/* <Card answers={answers} setAnswers={setAnswers} /> */}
+
+      <div className="flex flex-col items-center h-full w-1/2">
+        <h1 className="text-8xl mt-[10px]">{engDan ? ord[1] : ord[2]}</h1>
+        {/* <h1 className="text-8xl mt-[10px]">{engDan ? "true" : "false"}</h1> */}
+
+        <button onClick={() => setEngDan(!engDan)} >
+          {engDan ? "dan/eng" : "eng/dan"}
+        </button>
+
+        <Input
+          engDan={engDan}
+          ord={ord}
+          inputField={inputField}
+          setInputField={setInputField}
+          answers={answers}
+          setAnswers={setAnswers}
+          withCount={withCount}
+          setWithCount={setWithCount}
+        />
+
+        <div className="w-full text-base">
+          <DisplayAnswers
+            engDan={engDan}
+            answers={answers}
+          />
+        </div>
+      </div>
     </div>
-  )
-}
+)}
 
 
 // function Card({ answers, setAnswers }) {
-//   const [inputField, setInputField] = useState('')
+//   const [inputField, setInputField] = useState("")
 
 //   return <div>
 //     {/* card<br /> */}
@@ -146,18 +191,37 @@ export default function Home() {
 // }
 
 
-function Input({ ord, inputField, setInputField, answers, setAnswers }) {
-  // const toggle
+function Input({ engDan, ord, inputField, setInputField, answers, setAnswers, withCount, setWithCount }) {
+  const toggle = engDan ? ord[0] : ord[1]
+  
   const handleAnswerChange = (event) => {
     switch( event.key ) {
-      case 'Enter':
-        if ( inputField ) {
-          setInputField('')
-          setAnswers([[ inputField === ord[1] ? "text-lime-500" : "text-red-500", ord[0], ord[1], inputField ], ...answers ])
-  }}}
+      case "Enter":
+        if ((inputField === ord[1]) || (inputField === ord[2])) {
+          setWithCount( withCount.map(word => {
+            if (word[0] < 1) return
+            if ((ord[1] === word[1] || ord[2] === word[2]) || (ord[1] === word[2] || ord[2] === word[1])) {
+              console.log(`>>> ${ord[1]}\n>>> ${ord[2]}\ntrue\n ${word}>>>\n>>>\n`)
+
+              return [ word[0] - 1, word[1], word[2] ]
+            }
+            return word
+          }))
+          setAnswers(
+            [{ rightWrong: ((inputField === ord[1]) || (inputField === ord[2])) ? "text-lime-500" : "text-red-500",
+                word1: ord[1],
+                word2: ord[2],
+                input: inputField },
+            ...answers ])
+        }
+
+        setInputField("")
+
+
+  }}
 
   return <input
-    className="text-white-900 text-center my-4"
+    className="text-white-900 text-center my-4 w-full"
     type="text"
     onKeyDown={handleAnswerChange}
     value={inputField}
@@ -168,13 +232,28 @@ function Input({ ord, inputField, setInputField, answers, setAnswers }) {
 }
 
 
-function DisplayAnswers({ answers }) {
+function DisplayAnswers({ engDan, answers }) {
+  // console.log("ansewrs >>> ", answers)
+
   return answers.map((row: string[]) => {
+    const toggle = engDan ? row[1] : row[2]
+
     return (
       <div className={`flex flex-row justify-center}`}>
-        <div className={`flex-1 py-1 px-3 truncate`}>{row[1]}</div>
-        <div className={`flex-1 py-1 px-3 truncate`}>{row[2]}</div>
-        <div className={`flex-1 py-1 px-3 truncate ${row[0]}`}>{row.slice(3,)}</div>
+        <div className={`flex-1 py-1 px-3 truncate`}>{row["word1"]}</div>
+        <div className={`flex-1 py-1 px-3 truncate`}>{row["word2"]}</div>
+        <div className={`flex-1 py-1 px-3 truncate ${row["rightWrong"]}`}>{row["input"]}</div>
       </div>
   )})
+}
+
+
+function ListOfWords({ list }) {
+  return list.map((array) => {
+    return <div className="border-[1px] border-gray-800 text-xs flex flex-row justify-center align-center">
+      <div className={`flex-2 py-1 px-3 truncate text-xl`}>{array[0]}</div>
+      <div className={`flex-1 py-1 px-3 truncate`}>{array[1]}</div>
+      <div className={`flex-1 py-1 px-3 truncate`}>{array[2]}</div>
+    </div>
+  })
 }
