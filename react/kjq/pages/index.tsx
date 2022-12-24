@@ -76,7 +76,7 @@ import adverbs from "../arrays/FunEasyLearn/adverbs.json"
 import other from "../arrays/FunEasyLearn/other.json"
 
 const FunEasyLearn = [
-  // ...people, 
+  ...people,
   // ...describing_people,
   // ...fashion,
   // ...body,
@@ -88,19 +88,19 @@ const FunEasyLearn = [
   // ...work,
   // ...culture,
   // ...leisure_time,
-  // ...sport,
-  // ...city,
-  // ...transport,
-  // ...communications,
-  // ...security,
-  // ...animals,
-  // ...plants,
-  // ...environment,
-  // ...systems,
-  // ...verbs,
+  ...sport,
+  ...city,
+  ...transport,
+  ...communications,
+  ...security,
+  ...animals,
+  ...plants,
+  ...environment,
+  ...systems,
+  ...verbs,
   ...adjectives,
-  // ...adverbs,
-  // ...other
+  ...adverbs,
+  ...other
 ]
 
 const arr = FunEasyLearn
@@ -123,33 +123,49 @@ const arr = FunEasyLearn
 export default function Home() {
   const [engDan, setEngDan] = useState(0)
   const [answers, setAnswers] = useState([])
-  const [word, setWord] = useState("default")
   const [inputField, setInputField] = useState("")
   const [ord, setOrd] = useState(["music", "musik"])
-  const [withCount, setWithCount] = useState(arr.map((words) => { return [2, ...words] }))
-  const [wordsStill, setWordsStill] = useState(withCount.map(word => { if (word[0] > 0) { return word }}))
+  const [withCount, setWithCount] = useState(arr.map((words) => { return [1, ...words] }))
+  // const [wordsStill, setWordsStill] = useState(withCount.map(word => { if (word[0] > 0) { return word }}))
 
-  console.log(" >>>> wordsstill", wordsStill)
+  // console.log(" >>>> wordsstill", wordsStill)
+  // console.log(" >>>> before", ord[0])
 
   useEffect(() => {
-    setOrd(random(wordsStill))
+    const rand = random(wordsStillFunc())
+    // console.log(" >>>>>>>>>>>>>>>>> effect", rand)
+    setOrd(rand)
   }, answers)
 
-  // useEffect(() => {
-  //   setWordsStill(withCount.map(word => { if (word[0] > 0) { return word }}))
-  // })
+  function wordsStillFunc() {
+    const arr = []
+
+    withCount.map(word => {
+      if (word[0] > 0) { arr.push(word) }
+    })
+
+    console.log(" >>>>>>>>>>>>>>>>> func arr", arr)
+
+    if (arr.length == 0) {
+      console.log( "ARRAY IS EMPTY" )
+      return [[ 999, "FINISHED", "FINISHED" ]]
+    }
+    return arr
+  }
 
   function random(array) {
     return array[Math.floor(Math.random() * array.length)]
   }
 
+  // console.log(" >>>> egg", ord)
+
   return (
     <div className="flex flex-row w-full">
-      <div className="w-1/4">
+      <div className="w-1/3">
         <ListOfWords list={withCount} />
       </div>
 
-      <div className="flex flex-col items-center h-full w-1/2">
+      <div className="flex flex-col items-center h-full w-2/3 text-center">
         <h1 className="text-8xl mt-[10px]">{engDan ? ord[1] : ord[2]}</h1>
         {/* <h1 className="text-8xl mt-[10px]">{engDan ? "true" : "false"}</h1> */}
 
@@ -192,6 +208,7 @@ export default function Home() {
 
 
 function Input({ engDan, ord, inputField, setInputField, answers, setAnswers, withCount, setWithCount }) {
+  console.log(" >>>> input ord", ord)
   const toggle = engDan ? ord[0] : ord[1]
   
   const handleAnswerChange = (event) => {
@@ -199,24 +216,34 @@ function Input({ engDan, ord, inputField, setInputField, answers, setAnswers, wi
       case "Enter":
         if ((inputField === ord[1]) || (inputField === ord[2])) {
           setWithCount( withCount.map(word => {
-            if (word[0] < 1) return
+            // if (word[0] < 1) return
             if ((ord[1] === word[1] || ord[2] === word[2]) || (ord[1] === word[2] || ord[2] === word[1])) {
-              console.log(`>>> ${ord[1]}\n>>> ${ord[2]}\ntrue\n ${word}>>>\n>>>\n`)
+              // console.log(`>>> ${ord[1]}\n>>> ${ord[2]}\ntrue\n ${word}>>>\n>>>\n`)
 
               return [ word[0] - 1, word[1], word[2] ]
             }
             return word
           }))
-          setAnswers(
-            [{ rightWrong: ((inputField === ord[1]) || (inputField === ord[2])) ? "text-lime-500" : "text-red-500",
-                word1: ord[1],
-                word2: ord[2],
-                input: inputField },
-            ...answers ])
+        } else {
+          setWithCount( withCount.map(word => {
+            // if (word[0] < 1) return
+            if ((ord[1] === word[1] || ord[2] === word[2]) || (ord[1] === word[2] || ord[2] === word[1])) {
+              // console.log(`>>> ${ord[1]}\n>>> ${ord[2]}\ntrue\n ${word}>>>\n>>>\n`)
+
+              return [ word[0] + 2, word[1], word[2] ]
+            }
+            return word
+          }))
         }
 
-        setInputField("")
+        setAnswers(
+          [{ rightWrong: ((inputField === ord[1]) || (inputField === ord[2])) ? "text-lime-500" : "text-red-500",
+              word1: ord[1],
+              word2: ord[2],
+              input: inputField },
+          ...answers ])
 
+        setInputField("")
 
   }}
 
@@ -249,11 +276,18 @@ function DisplayAnswers({ engDan, answers }) {
 
 
 function ListOfWords({ list }) {
-  return list.map((array) => {
+  const array = []
+
+  list.map((ord) => { if (ord[0] > 0) { array.push(ord) }})
+
+  console.log("list >>>>>>>>", list)
+  console.log("array >>>>>>>>", array)
+
+  return array.map((ord) => {
     return <div className="border-[1px] border-gray-800 text-xs flex flex-row justify-center align-center">
-      <div className={`flex-2 py-1 px-3 truncate text-xl`}>{array[0]}</div>
-      <div className={`flex-1 py-1 px-3 truncate`}>{array[1]}</div>
-      <div className={`flex-1 py-1 px-3 truncate`}>{array[2]}</div>
+      <div className={`flex-2 py-1 px-3 truncate text-xl`}>{ord[0]}</div>
+      <div className={`flex-1 py-1 px-3 truncate`}>{ord[1]}</div>
+      <div className={`flex-1 py-1 px-3 truncate`}>{ord[2]}</div>
     </div>
   })
 }
