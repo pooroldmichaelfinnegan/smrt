@@ -29,7 +29,7 @@
       ["friendly", "venlig"],
       ["funny", "sjov"],
       ["kind", "rar"],
-      ["smart", "klog?"]
+      ["smart", "klog"]
     ], "characteristics 2": [
       ["lazy", "doven"],
       ["shy", "genert"],
@@ -55,7 +55,7 @@
     ], "feelings": [
       ["love", "en kærlighed"],
       ["hope", "et håb"],
-      ["car", "en omsorg"],
+      ["care", "en omsorg"],
       ["fear", "en frygt"],
       ["anger", "en vrede"]
     ], "people's opinions": [
@@ -116,7 +116,7 @@
   }, "health": {
     "health problems": [
       ["disease", "en sygdom"],
-      ["cold", "enforkølelse"],
+      ["cold", "en forkølelse"],
       ["allergy", "en allergi"],
       ["poisoning", "en forgiftning"]
     ], "symptoms": [
@@ -174,7 +174,7 @@
       ["shop", "en butik"],
       ["market", "et marked"],
       ["supermarket", "et supermaked"],
-      ["toy show", "en legetøjsbutik"]
+      ["toy shop", "en legetøjsbutik"]
     ], "appliance shop": [
       ["fridge", "et køleskab"],
       ["clock", "et ur"],
@@ -250,7 +250,7 @@
     ], "dairy products": [
       ["milk", "en mælk"],
       ["butter", "et smør"],
-      ["chesse", "en ost"],
+      ["cheese", "en ost"],
       ["egg", "et æg"]
     ], "breads": [
       ["bread", "et brød"],
