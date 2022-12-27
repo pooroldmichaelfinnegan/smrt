@@ -2,7 +2,7 @@ import Head from "next/head"
 import Image from "next/image"
 import styles from "../styles/Home.module.css"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext, createContext } from "react"
 
 
 const subject = [["i", "jeg"],["you", "du"],["he", "han"],["she", "hun"],["we", "vi"],["you", "i"],["they", "de"]]
@@ -76,7 +76,7 @@ import adverbs from "../arrays/FunEasyLearn/adverbs.json"
 import other from "../arrays/FunEasyLearn/other.json"
 
 const FunEasyLearn = [
-  ...people,
+  // ...people,
   // ...describing_people,
   // ...fashion,
   // ...body,
@@ -85,22 +85,22 @@ const FunEasyLearn = [
   // ...shopping,
   // ...food_drink,
   // ...education,
-  // ...work,
-  // ...culture,
-  // ...leisure_time,
-  ...sport,
-  ...city,
-  ...transport,
-  ...communications,
-  ...security,
-  ...animals,
-  ...plants,
-  ...environment,
-  ...systems,
-  ...verbs,
-  ...adjectives,
-  ...adverbs,
-  ...other
+  ...work,
+  ...culture,
+  ...leisure_time,
+  // ...sport,
+  // ...city,
+  // ...transport,
+  // ...communications,
+  // ...security,
+  // ...animals,
+  // ...plants,
+  // ...environment,
+  // ...systems,
+  // ...verbs,
+  // ...adjectives,
+  // ...adverbs,
+  // ...other
 ]
 
 const arr = FunEasyLearn
@@ -120,12 +120,15 @@ const arr = FunEasyLearn
 
 // console.log(">>>>>>>>> withCount ", withCount)
 
+  const danEng = createContext()
+
 export default function Home() {
   const [engDan, setEngDan] = useState(0)
   const [answers, setAnswers] = useState([])
   const [inputField, setInputField] = useState("")
   const [ord, setOrd] = useState(["music", "musik"])
   const [withCount, setWithCount] = useState(arr.map((words) => { return [1, ...words] }))
+
   // const [wordsStill, setWordsStill] = useState(withCount.map(word => { if (word[0] > 0) { return word }}))
 
   // console.log(" >>>> wordsstill", wordsStill)
@@ -160,38 +163,39 @@ export default function Home() {
   // console.log(" >>>> egg", ord)
 
   return (
-    <div className="flex flex-row w-full">
-      <div className="w-1/3">
-        <ListOfWords list={withCount} />
-      </div>
+    <danEng.Provider value={engDan}>
+      <div className="flex flex-row w-full">
+        <div className="w-1/3">
+          <ListOfWords list={withCount} />
+        </div>
 
-      <div className="flex flex-col items-center h-full w-2/3 text-center">
-        <h1 className="text-8xl mt-[10px]">{engDan ? ord[1] : ord[2]}</h1>
-        {/* <h1 className="text-8xl mt-[10px]">{engDan ? "true" : "false"}</h1> */}
+        <div className="flex flex-col items-center h-full w-2/3 text-center">
+          <h1 className="text-8xl mt-[10px]">{engDan ? ord[1] : ord[2]}</h1>
+          {/* <h1 className="text-8xl mt-[10px]">{engDan ? "true" : "false"}</h1> */}
 
-        <button onClick={() => setEngDan(!engDan)} >
-          {engDan ? "dan/eng" : "eng/dan"}
-        </button>
+          <button onClick={() => setEngDan(!engDan)} >
+            {engDan ? "dan/eng" : "eng/dan"}
+          </button>
 
-        <Input
-          engDan={engDan}
-          ord={ord}
-          inputField={inputField}
-          setInputField={setInputField}
-          answers={answers}
-          setAnswers={setAnswers}
-          withCount={withCount}
-          setWithCount={setWithCount}
-        />
-
-        <div className="w-full text-base">
-          <DisplayAnswers
-            engDan={engDan}
+          <Input
+            ord={ord}
+            inputField={inputField}
+            setInputField={setInputField}
             answers={answers}
+            setAnswers={setAnswers}
+            withCount={withCount}
+            setWithCount={setWithCount}
           />
+
+          <div className="w-full text-base">
+            <DisplayAnswers
+              engDan={engDan}
+              answers={answers}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </danEng.Provider>
 )}
 
 
@@ -207,7 +211,9 @@ export default function Home() {
 // }
 
 
-function Input({ engDan, ord, inputField, setInputField, answers, setAnswers, withCount, setWithCount }) {
+function Input({ ord, inputField, setInputField, answers, setAnswers, withCount, setWithCount }) {
+  const engDan = useContext(danEng)
+
   console.log(" >>>> input ord", ord)
   const toggle = engDan ? ord[0] : ord[1]
   
@@ -259,8 +265,9 @@ function Input({ engDan, ord, inputField, setInputField, answers, setAnswers, wi
 }
 
 
-function DisplayAnswers({ engDan, answers }) {
+function DisplayAnswers({ answers }) {
   // console.log("ansewrs >>> ", answers)
+  const engDan = useContext(danEng)
 
   return answers.map((row: string[]) => {
     const toggle = engDan ? row[1] : row[2]
@@ -277,17 +284,20 @@ function DisplayAnswers({ engDan, answers }) {
 
 function ListOfWords({ list }) {
   const array = []
-
   list.map((ord) => { if (ord[0] > 0) { array.push(ord) }})
 
-  console.log("list >>>>>>>>", list)
-  console.log("array >>>>>>>>", array)
-
-  return array.map((ord) => {
-    return <div className="border-[1px] border-gray-800 text-xs flex flex-row justify-center align-center">
-      <div className={`flex-2 py-1 px-3 truncate text-xl`}>{ord[0]}</div>
-      <div className={`flex-1 py-1 px-3 truncate`}>{ord[1]}</div>
-      <div className={`flex-1 py-1 px-3 truncate`}>{ord[2]}</div>
+  return <>
+    <div className="absolute flex flex-row w-full">
+      <div className="w-1/3"></div>
+      <div className="px-3 py-1">{array.length}</div>
     </div>
-  })
+
+    {array.map((ord) => {
+      return <div className="border-[1px] border-gray-800 text-xs flex flex-row justify-center align-center">
+        <div className={`flex-2 py-1 px-3 truncate text-xl`}>{ord[0]}</div>
+        <div className={`flex-1 py-1 px-3 truncate`}>{ord[1]}</div>
+        <div className={`flex-1 py-1 px-3 truncate`}>{ord[2]}</div>
+      </div>
+    })}
+    </>
 }
