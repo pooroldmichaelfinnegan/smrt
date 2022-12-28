@@ -25,29 +25,29 @@ import adverbs from "./adverbs.json"
 import other from "./other.json"
 
 export const FunEasyLearn = [
-  // ...people,             // 
-  // ...describing_people,  // 
-  // ...fashion,            // 
+  ...people,             // 
+  ...describing_people,  // 
+  ...fashion,            // 
   ...body,               // 
   ...health,             // 
-  // ...house,              // 
-  // ...shopping,           // 
-  // ...food_drink,         // 
-  // ...education,          // 
-  // ...work,               // more
-  // ...culture,            // more
-  // ...leisure_time,       // more
-  // ...sport,              // 
-  // ...city,               // 
-  // ...transport,          // 
-  // ...communications,     // 
-  // ...security,           // 
-  // ...animals,            // 
-  // ...plants,             // 
-  // ...environment,        // 
-  // ...systems,            // 
-  // ...verbs,              // 
-  // ...adjectives,         // 
-  // ...adverbs,            // 
-  // ...other               // 
+  ...house,              // 
+  ...shopping,           // 
+  ...food_drink,         // 
+  ...education,          // 
+  ...work,               // more
+  ...culture,            // more
+  ...leisure_time,       // more
+  ...sport,              // 
+  ...city,               // 
+  ...transport,          // 
+  ...communications,     // 
+  ...security,           // 
+  ...animals,            // 
+  ...plants,             // 
+  ...environment,        // 
+  ...systems,            // 
+  ...verbs,              // 
+  ...adjectives,         // 
+  ...adverbs,            // 
+  ...other               // 
 ]

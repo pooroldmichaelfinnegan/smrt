@@ -39,6 +39,52 @@ const egg = [
   ["var", "was, had, where"],
   ["ved", "near, at, know, to"]
 ]
+const egg2 = [["gøre", "do"],
+["var", "was"],
+["vel", "well"],
+["vil", "will"],
+["stadig", "still"],
+["meget", "very"],
+["tage", "take"],
+["skal", "shall, must"],
+["kun", "only"],
+["få", "get"],
+["smager", "taste"],
+["første", "first"],
+["gang", "time"],
+["slik", "sweets"],
+["synes", "think"],
+["tror", "think"],
+["tænke", "think"],
+["slags", "kind of"],
+["også", "also"],
+["", ""],
+["", ""],
+["måske", "maybe"],
+["andre", "others"],
+["nogle", "some"],
+["en masse", "a lot"],
+["udlændinge", "foreiners"],
+["valgte", "chose"],
+["især", "especially"],
+["mennesker", "people"],
+["verden", "the world"],
+["sprog", "language"],
+["", ""],
+["sådan", "such, like"],
+["hedder", "called"],
+["forhold", "relation"],
+["i hvert fald", "at least"],
+["åbenhed", "openness"],
+["spændende", "interesting"],
+["består", "consists"],
+["hele tiden", "all the time"],
+["omfatfer", "includes"],
+["fløde","cream"],
+["selmer", "hymes"],
+["typisk", "typical"],
+["", ""],
+]
 
 
 // import måneder_months from "../arrays/måneder__months.json"
@@ -50,7 +96,8 @@ import simp from "../arrays/simple.json"
 
 import { FunEasyLearn } from "../arrays/FunEasyLearn/all"
 
-const arr = FunEasyLearn
+// const arr = FunEasyLearn
+const arr = egg2
 // let withCount = arr.map((words) => {
 //   console.log("use effect first", words)
 //   return [5, ...words]
@@ -65,9 +112,7 @@ const arr = FunEasyLearn
 //   })
 // }
 
-// console.log(">>>>>>>>> withCount ", withCount)
-
-  const danEng = createContext()
+const danEng = createContext()
 
 export default function Home() {
   const [engDan, setEngDan] = useState(0)
@@ -94,12 +139,12 @@ export default function Home() {
       if (word[0] > 0) { arr.push(word) }
     })
 
-    console.log(" >>>>>>>>>>>>>>>>> func arr", arr)
-
-    if (arr.length == 0) {
+    if (!arr.length) {
       console.log( "ARRAY IS EMPTY" )
+
       return [[ 999, "FINISHED", "FINISHED" ]]
     }
+
     return arr
   }
 
