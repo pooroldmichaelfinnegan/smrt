@@ -1,6 +1,6 @@
-
-
-[["cow", "en ko"],
+[["cat", "en kat"],
+["dog", "en hund"],
+["cow", "en ko"],
 ["horse", "en hest"],
 ["pig", "en gris"],
 ["hen", "en høne"],
@@ -11,7 +11,7 @@
 ["wolf", "en ulv"],
 ["bear", "en bjørn"],
 ["lion", "en løve"],
-
+["elephant", "en elefant"],
 ["owl", "en ugle"],
 ["swan", "en svane"],
 ["crow", "en krage"],
@@ -19,12 +19,12 @@
 ["frog", "en frø"],
 ["snake", "en slange"],
 ["turtle", "en skildpadde"],
-
+["crocodile", "en krokodille"],
 ["fly", "en flue"],
 ["ant", "en myre"],
 ["bee", "en bi"],
 ["spider", "en edderkop"],
 ["kitten", "killing"],
 ["puppy", "en hvalp"],
-
+["chuck", "en kylling"],
 ["piglet", "en pattegris"]]

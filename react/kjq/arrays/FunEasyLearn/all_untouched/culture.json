@@ -7,15 +7,15 @@
 ["title", "en titel"],
 ["cover", "et comslag"],
 ["page", "en side"],
-
+["music", "en musik"],
 ["song", "en sang"],
 ["sound", "en lyd"],
 ["to sing", "at synge"],
 ["piano", "et klaver"],
-
+["guitar", "en guitar"],
 ["drum", "en tromme"],
-
-
+["violin", "en violin"],
+["trumpet", "en trompet"],
 ["art", "en kunst"],
 ["picture", "et billede"],
 ["sculpture", "en skulptur"],

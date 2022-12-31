@@ -8,7 +8,7 @@
 ["they", "de"],
 ["on", "på"],
 ["under", "under"],
-
+["in", "i"],
 ["near", "nær"],
 ["between", "mellem"],
 ["and", "og"],
@@ -17,4 +17,5 @@
 ["but", "men"],
 ["dot", "et punkt"],
 ["comma", "et komma"],
-["dash", "en tankestreg"]]
+["dash", "en tankestreg"],
+["brackets", "en parentes"]]

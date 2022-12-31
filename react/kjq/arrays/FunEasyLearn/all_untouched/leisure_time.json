@@ -4,8 +4,8 @@
 ["comedy", "en komedie"],
 ["theartre", "et teater"],
 ["play", "et teaterstykke"],
-
-
+["ballet", "en ballet"],
+["concert", "en koncert"],
 ["ticket", "en billet"],
 ["tourist", "en turist"],
 ["holiday", "en ferie"],
@@ -14,11 +14,11 @@
 ["beach", "en strand"],
 ["sand", "et sand"],
 ["tan", "en solbrændthed"],
-
+["rubber ring", "en badering"],
 ["game", "et spil"],
 ["chess", "en skak"],
 ["jigsaw", "et puslespil"],
-
+["dominoes", "en domino"],
 ["to play", "at lege"],
 ["sandpit", "en sandkasse"],
 ["swing", "en gynge"],

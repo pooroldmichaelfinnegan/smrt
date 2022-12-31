@@ -1,6 +1,6 @@
-import Head from "next/head"
-import Image from "next/image"
-import styles from "../styles/Home.module.css"
+// import Head from "next/head"
+// import Image from "next/image"
+// import styles from "../styles/Home.module.css"
 
 import React, { useState, useEffect, useContext, createContext } from "react"
 
@@ -95,9 +95,14 @@ const egg2 = [["gøre", "do"],
 import simp from "../arrays/simple.json"
 
 import { FunEasyLearn } from "../arrays/FunEasyLearn/all"
+import ords221229 from "../arrays/ords221229.json"
+import ords221230 from "../arrays/ords221230.json"
+import ords221231 from "../arrays/ords221231.json"
 
-// const arr = FunEasyLearn
-const arr = egg2
+const arr = [ ...ords221229, ...ords221230, ...ords221231 ]
+
+// const arr = ord221229
+
 // let withCount = arr.map((words) => {
 //   console.log("use effect first", words)
 //   return [5, ...words]
@@ -156,8 +161,8 @@ export default function Home() {
 
   return (
     <danEng.Provider value={engDan}>
-      <div className="flex flex-row w-full">
-        <div className="w-1/3">
+      <div className="bg-black text-white flex flex-row w-full">
+        <div className="w-1/3 py-[50px] px-[50px]">
           <ListOfWords list={withCount} />
         </div>
 
@@ -212,7 +217,7 @@ function Input({ ord, inputField, setInputField, answers, setAnswers, withCount,
   const handleAnswerChange = (event) => {
     switch( event.key ) {
       case "Enter":
-        if ((inputField === ord[1]) || (inputField === ord[2])) {
+        if ((inputField === ord[1]) || (inputField === ord[2]) || inputField === `'`) {
           setWithCount( withCount.map(word => {
             // if (word[0] < 1) return
             if ((ord[1] === word[1] || ord[2] === word[2]) || (ord[1] === word[2] || ord[2] === word[1])) {
@@ -246,7 +251,7 @@ function Input({ ord, inputField, setInputField, answers, setAnswers, withCount,
   }}
 
   return <input
-    className="text-white-900 text-center my-4 w-full"
+    className="bg-black text-center my-4 w-full"
     type="text"
     onKeyDown={handleAnswerChange}
     value={inputField}
@@ -265,7 +270,7 @@ function DisplayAnswers({ answers }) {
     const toggle = engDan ? row[1] : row[2]
 
     return (
-      <div className={`flex flex-row justify-center}`}>
+      <div className={`flex flex-row justify-center border-[1px] border-gray-500`}>
         <div className={`flex-1 py-1 px-3 truncate`}>{row["word1"]}</div>
         <div className={`flex-1 py-1 px-3 truncate`}>{row["word2"]}</div>
         <div className={`flex-1 py-1 px-3 truncate ${row["rightWrong"]}`}>{row["input"]}</div>

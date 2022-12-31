@@ -1,7 +1,7 @@
 [["fruit", "en frugt"],
 ["apple", "et æble"],
 ["orange", "en appelsin"],
-
+["banana", "en banan"],
 ["strawberry", "et jordbær"],
 ["raspberry", "et hindbær"],
 ["vegetable", "en grøntsag"],
@@ -44,7 +44,7 @@
 ["dinner", "en aftensmad"],
 ["soup", "en suppe"],
 ["salad", "en salat"],
-
+["sandwich", "en sandwich"],
 ["cake", "en kage"],
 ["jam", "et syltetøj"],
 ["sweet", "sødt"],
@@ -53,4 +53,5 @@
 ["bitter", "bitter"],
 ["water", "vand"],
 ["tea", "en te"],
-["coffee", "en kaffe"]]
+["coffee", "en kaffe"],
+["juice", "en juice"]]
