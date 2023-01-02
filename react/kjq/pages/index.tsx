@@ -98,8 +98,16 @@ import { FunEasyLearn } from "../arrays/FunEasyLearn/all"
 import ords221229 from "../arrays/ords221229.json"
 import ords221230 from "../arrays/ords221230.json"
 import ords221231 from "../arrays/ords221231.json"
+import ords230101 from "../arrays/ords230101.json"
+import ords230102 from "../arrays/ords230102.json"
 
-const arr = [ ...ords221229, ...ords221230, ...ords221231 ]
+const arr = [
+  // ...ords221229,
+  // ...ords221230,
+  // ...ords221231,
+  ...ords230101,
+  ...ords230102,
+]
 
 // const arr = ord221229
 
