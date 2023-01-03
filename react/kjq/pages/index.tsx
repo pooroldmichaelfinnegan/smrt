@@ -100,6 +100,7 @@ import ords221230 from "../arrays/ords221230.json"
 import ords221231 from "../arrays/ords221231.json"
 import ords230101 from "../arrays/ords230101.json"
 import ords230102 from "../arrays/ords230102.json"
+import ords230103 from "../arrays/ords230103.json"
 
 const arr = [
   // ...ords221229,
@@ -107,6 +108,7 @@ const arr = [
   // ...ords221231,
   ...ords230101,
   ...ords230102,
+  ...ords230103,
 ]
 
 // const arr = ord221229
@@ -170,17 +172,18 @@ export default function Home() {
   return (
     <danEng.Provider value={engDan}>
       <div className="bg-black text-white flex flex-row w-full">
-        <div className="w-1/3 py-[50px] px-[50px]">
+        <div className="w-1/3 py-[50px] px-[25px]">
+          <button onClick={() => setEngDan(!engDan)} >
+            {engDan ? "dan/eng" : "eng/dan"}
+          </button>
           <ListOfWords list={withCount} />
         </div>
 
         <div className="flex flex-col items-center h-full w-2/3 text-center">
+          <h1 className="text-2xl text-center px-[10px]">{engDan ? ord[2] : ord[1]}</h1>
           <h1 className="text-8xl mt-[10px]">{engDan ? ord[1] : ord[2]}</h1>
           {/* <h1 className="text-8xl mt-[10px]">{engDan ? "true" : "false"}</h1> */}
 
-          <button onClick={() => setEngDan(!engDan)} >
-            {engDan ? "dan/eng" : "eng/dan"}
-          </button>
 
           <Input
             ord={ord}
@@ -278,10 +281,11 @@ function DisplayAnswers({ answers }) {
     const toggle = engDan ? row[1] : row[2]
 
     return (
-      <div className={`flex flex-row justify-center border-[1px] border-gray-500`}>
-        <div className={`flex-1 py-1 px-3 truncate`}>{row["word1"]}</div>
-        <div className={`flex-1 py-1 px-3 truncate`}>{row["word2"]}</div>
-        <div className={`flex-1 py-1 px-3 truncate ${row["rightWrong"]}`}>{row["input"]}</div>
+      <div className={`flex flex-row justify-center w-100% border-[1px] border-gray-500 text-left`}>
+        <div className={`basis-1/4 py-1 px-3 truncate`}>{row["word1"]}</div>
+        <div className={`basis-1/2 py-1 px-3 truncate`}>{row["word2"]}</div>
+        {/* <div className={`basis-1/4 py-1 px-3 truncate ${row["rightWrong"]} text-right`}>{row["input"]}</div> */}
+        <div className={`basis-1/4 py-1 px-3 truncate text-right`}>{row["input"]}</div>
       </div>
   )})
 }
@@ -299,9 +303,9 @@ function ListOfWords({ list }) {
 
     {array.map((ord) => {
       return <div className="border-[1px] border-gray-800 text-xs flex flex-row justify-center align-center">
-        <div className={`flex-2 py-1 px-3 truncate text-xg`}>{ord[0]}</div>
-        <div className={`flex-1 py-1 px-3 truncate text-xg`}>{ord[1]}</div>
-        <div className={`flex-1 py-1 px-3 truncate text-xg`}>{ord[2]}</div>
+        <div className={`basis-1/4 py-1 px-3 truncate text-xg`}>{ord[0]}</div>
+        <div className={`basis-1/2 py-1 px-3 truncate text-xg`}>{ord[1]}</div>
+        <div className={`basis-1/4 py-1 px-3 truncate text-xg`}>{ord[2]}</div>
       </div>
     })}
   </>
