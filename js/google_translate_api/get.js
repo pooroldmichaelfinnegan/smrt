@@ -2,9 +2,7 @@ const fs = require('fs')
 const axios = require('axios')
 
 const ords = require('./json/ords221229-220105.json')
-
-const simple = ['som']
-const out = {}
+const simple = ['som', 'kartoffel', 'ved']
 
 const GTget = async (ord) => {
   const URL = `https://translate.googleapis.com/translate_a/single`
@@ -21,16 +19,27 @@ const GTget = async (ord) => {
   return orddata
 }
 
+const parseData = data => {
+  const str = []
+  
+  const orig = data.sentences[0].orig
+  str.push(orig)
 
-simple.map(ord => {
-  console.log(' >>> HERE ', ord)
+  const trans = data.sentences[0].trans
+  str.push(trans)
+  
+  if (data.dict === undefined) return str
+
+  const lexCats = parseLexCats(data.dict)
+
+  return str.concat(lexCats)
+}
+const parseLexCats = dict => dict.map(cat => `${cat.pos}: ${cat.terms.join(', ')}`)
+
+ords.map(ord => {
+  // console.log(' >>> HERE ', ord)
   GTget(ord)
-    .then(json => json)
-    // .then(json => json.dict)
-    // .then(data => JSON.stringify(data))
-    .then(str => console.log(str))
+    .then(json => json.data)
+    .then(data => parseData(data))
+    .then(log => console.log(log))
 })
-
-
-// GTget('rar')
-//   .then(out => console.log(out))
