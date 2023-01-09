@@ -2,6 +2,8 @@ const fs = require('fs')
 const axios = require('axios')
 
 const ords = require('./json/ords221229-220105.json')
+const a = require('./prePost/230107_.json')
+
 const simple = ['som', 'kartoffel', 'ved']
 
 const GTget = async (ord) => {
@@ -34,9 +36,10 @@ const parseData = data => {
 
   return str.concat(lexCats)
 }
+
 const parseLexCats = dict => dict.map(cat => `${cat.pos}: ${cat.terms.join(', ')}`)
 
-ords.map(ord => {
+a.map(ord => {
   // console.log(' >>> HERE ', ord)
   GTget(ord)
     .then(json => json.data)

@@ -104,16 +104,21 @@ import ords230103 from "../arrays/ords230103.json"
 import ords230104 from "../arrays/ords230104.json"
 import ords230105 from "../arrays/ords230105.json"
 
+import ords_gt_221229_230105 from "../arrays/ords_gt_221229_230105.json"
+import gt_230107_230109 from "../arrays/gt_230107_230109.json"
+
 const arr = [
-  ...ords221229,
-  ...ords221230,
-  ...ords221231,
-  ...ords230101,
-  ...ords230102,
-  ...ords230103,
-  ...ords230104,
-  ...ords230105,
-  ...simp
+  // ...ords221229,
+  // ...ords221230,
+  // ...ords221231,
+  // ...ords230101,
+  // ...ords230102,
+  // ...ords230103,
+  // ...ords230104,
+  // ...ords230105,
+  // ...simp
+  // ...ords_gt_221229_230105
+  ...gt_230107_230109
 ]
 
 // const arr = ord221229
@@ -132,6 +137,8 @@ const arr = [
 //   })
 // }
 
+const add1 = lst => lst.map(() => {[ ...lst, lst[0] += 1 ]})
+
 const danEng = createContext()
 
 export default function Home() {
@@ -139,7 +146,7 @@ export default function Home() {
   const [answers, setAnswers] = useState([])
   const [inputField, setInputField] = useState("")
   const [ord, setOrd] = useState(["music", "musik"])
-  const [withCount, setWithCount] = useState(arr.map((words) => { return [1, ...words] }))
+  const [withCount, setWithCount] = useState( arr.map( words => { return [ 1, ...words ]}))
 
   // const [wordsStill, setWordsStill] = useState(withCount.map(word => { if (word[0] > 0) { return word }}))
 
@@ -172,11 +179,10 @@ export default function Home() {
     return array[Math.floor(Math.random() * array.length)]
   }
 
-  // console.log(" >>>> egg", ord)
-
   return (
     <danEng.Provider value={engDan}>
       <div className="absolute p-2">
+        <button onClick={() => add1(withCount)}> +1 </button>
         <button onClick={() => setEngDan(!engDan)} >
           {engDan ? "dan/eng" : "eng/dan"}
         </button>
@@ -261,8 +267,9 @@ function Input({ ord, inputField, setInputField, answers, setAnswers, withCount,
 
         setAnswers(
           [{ rightWrong: ((inputField === ord[1]) || (inputField === ord[2])) ? "text-lime-500" : "text-red-500",
-              word1: ord[1],
-              word2: ord[2],
+              danWord: ord[1],
+              engWord: ord[2],
+              engDef: ord.slice(3),
               input: inputField },
           ...answers ])
 
@@ -290,11 +297,14 @@ function DisplayAnswers({ answers }) {
     const toggle = engDan ? row[1] : row[2]
 
     return (
-      <div className={`flex flex-row justify-center w-100% text-left`}>{/*border-[1px] border-gray-500`}>*/}  
-        <div className={`basis-1/4 py-1 px-3 truncate`}>{row["word1"]}</div>
-        <div className={`basis-1/2 py-1 px-3 truncate`}>{row["word2"]}</div>
+      <div className={`flex flex-row justify-center w-100% text-left py-3`}>{/*border-[1px] border-gray-500`}>*/}  
+        <div className={`basis-1/4 py-1 px-3 truncate`}>{row["danWord"]}</div>
+        <div className={`basis-1/2`}>
+          <div className={`truncate`}>{row["engWord"]}</div>
+          {[ ...row[ "engDef" ]].map(str => <div className={`truncate`}>{str}</div>)}
+        </div>
         {/* <div className={`basis-1/4 py-1 px-3 truncate ${row["rightWrong"]} text-right`}>{row["input"]}</div> */}
-        <div className={`basis-1/4 py-1 px-3 truncate text-right`}>{row["input"]}</div>
+        {/* <div className={`basis-1/4 py-1 px-3 truncate text-right`}>{row["input"]}</div> */}
       </div>
   )})
 }

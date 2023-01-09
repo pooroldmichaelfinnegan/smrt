@@ -2,6 +2,7 @@
 ["gøre", "do"],
 ["var", "was"],
 ["vel", "well"],
+
 ["stadig", "still"],
 ["meget", "very"],
 ["tage", "take"],
@@ -17,6 +18,8 @@
 ["tænke", "think"],
 ["slags", "kind of"],
 ["også", "also"],
+["", ""],
+["", ""],
 ["måske", "maybe"],
 ["andre", "others"],
 ["nogle", "some"],
@@ -27,6 +30,7 @@
 ["mennesker", "people"],
 ["verden", "the world"],
 ["sprog", "language"],
+["", ""],
 ["sådan", "such, like"],
 ["hedder", "called"],
 ["forhold", "relation"],
@@ -39,6 +43,8 @@
 ["fløde","cream"],
 ["selmer", "hymes"],
 ["typisk", "typical"],
+
+["", "221229"],
 ["aldrig", "never"],
 ["glemmer", "forget"],
 ["ulykke", "accident"],
@@ -74,6 +80,7 @@
 ["blev", "was, became"],
 ["hos", "with, at"],
 ["ganske", "quite"],
+
 ["lækker", "hot, delicious"],
 ["rigtig", "really, actually"]
 ]

@@ -3,6 +3,7 @@
 ["snarere end; i stedet for", "rather than; instead of"],
 ["snarere", "rather"],
 ["bag", "behind"],
+
 ["enke", "window"],
 ["forsøge", "attempt"],
 ["fange", "capture"],
@@ -19,6 +20,7 @@
 ["angivelse", "stating"],
 ["ligger", "located"],
 ["røver", "robber"],
+
 ["tilstand", "mode/state"],
 ["pleje", "to care"],
 ["havde", "had"],
@@ -27,12 +29,14 @@
 ["ellers noget", "anything else"],
 ["lider", "suffer"],
 ["købte", "bought"],
+
 ["roligt", "quiet"],
 ["forstærke", "reinforce"],
 ["udsagn", "statement"],
 ["spurgte", "asked"],
 ["kønt", "pretty"],
 ["omstændigheder", "circumstances"],
+
 ["smide", "throw"],
 ["derudad", "'let's GO!'"],
 ["hør efter", "'listen up'"],
@@ -47,10 +51,14 @@
 ["sand", "true"],
 ["endelig", "finally"],
 ["skal kunne", "must be able to"],
+
+
 ["ansigt", "face"],
+
 ["tilstedeværelse", "presence"],
 ["nedsættende", "derogatory"],
 ["egen", "own"],
+
 ["sker", "happens"],
 ["angivelse", "indication"],
 ["omtrentlig", "approximate"],
@@ -68,8 +76,25 @@
 ["begrænset", "limited"],
 ["vundet", "won"],
 ["øjeblik", "moment"],
+
 ["tillykke", "congratulations"],
 ["be om", "please"],
 ["løj", "lied"],
-["geniale", "genius"]
+["geniale", "genius"],
+[""],
+[""],
+[""],
+[""],
+[""],
+[""],
+[""],
+[""],
+[""],
+[""],
+[""],
+[""],
+[""],
+[""],
+[""],
+[""]
 ]
